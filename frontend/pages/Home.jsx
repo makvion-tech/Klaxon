@@ -6,7 +6,7 @@ import {
     Star, TrendingUp, Users, Package
 } from 'lucide-react'
 
-import ProductCard from '../components/ui/ProductCard'
+import ProductCard from '../components/ui/Productcard'
 import { ProductSkeleton } from '../components/ui/Skeleton'
 import api from '../src/utils/api'
 import Navbar from '../components/layouts/Navbar'

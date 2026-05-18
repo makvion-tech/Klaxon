@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Leaf, Eye, EyeOff, Shield, Lock } from 'lucide-react'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/Authcontext'
 import toast from 'react-hot-toast'
 
 export default function AdminLogin() {
