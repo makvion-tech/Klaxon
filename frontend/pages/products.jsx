@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Search, Filter, X, ChevronDown } from 'lucide-react'
+import { Search, X, ChevronDown } from 'lucide-react'
 
 import ProductCard from '../components/ui/ProductCard'
 import { ProductSkeleton } from '../components/ui/Skeleton'
@@ -24,17 +24,21 @@ export default function Products() {
             if (search) params.set('search', search)
             if (selectedCategory) params.set('category', selectedCategory)
             const res = await api.get(`/products?${params}`)
-            setProducts(res.data.data)
-            setPagination(res.data.pagination)
+            setProducts(res.data?.data ?? [])
+            setPagination(res.data?.pagination ?? {})
         } catch (e) {
             console.error(e)
+            setProducts([])
+            setPagination({})
         } finally {
             setLoading(false)
         }
     }
 
     useEffect(() => {
-        api.get('/categories').then(res => setCategories(res.data.data))
+        api.get('/categories')
+            .then(res => setCategories(res.data?.data ?? []))
+            .catch(() => setCategories([]))
     }, [])
 
     useEffect(() => {
@@ -159,7 +163,7 @@ export default function Products() {
                         <div className="flex items-center justify-between mb-6">
                             <p className="font-body text-sm text-gray-500">
                                 Showing <span className="font-semibold text-gray-700">{products.length}</span> of{' '}
-                                <span className="font-semibold text-gray-700">{pagination.total}</span> products
+                                <span className="font-semibold text-gray-700">{pagination.total ?? 0}</span> products
                             </p>
                         </div>
 
@@ -182,8 +186,8 @@ export default function Products() {
                                         key={i}
                                         onClick={() => setPage(i + 1)}
                                         className={`w-10 h-10 rounded-lg font-body text-sm font-medium transition-colors ${page === i + 1
-                                                ? 'bg-forest-900 text-white'
-                                                : 'border border-gray-200 text-gray-600 hover:bg-white hover:border-forest-900'
+                                            ? 'bg-forest-900 text-white'
+                                            : 'border border-gray-200 text-gray-600 hover:bg-white hover:border-forest-900'
                                             }`}
                                     >
                                         {i + 1}
