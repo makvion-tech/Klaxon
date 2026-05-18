@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Star, MapPin, Package, Shield, ChevronLeft, Send, CheckCircle } from 'lucide-react'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
+
 import { StarRating } from '../components/ui/ProductCard'
 import { PageLoader } from '../components/ui/Skeleton'
-import api from '../utils/api'
+import api from '../src/utils/api'
 import toast from 'react-hot-toast'
+import Navbar from '../components/layouts/Navbar'
+import Footer from '../components/layouts/Footer'
 
 const specs = [
     { key: 'origin', label: 'Origin' },

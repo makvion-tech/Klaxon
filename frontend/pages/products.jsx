@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Filter, X, ChevronDown } from 'lucide-react'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
+
 import ProductCard from '../components/ui/ProductCard'
 import { ProductSkeleton } from '../components/ui/Skeleton'
-import api from '../utils/api'
+import api from '../src/utils/api'
+import Navbar from '../components/layouts/Navbar'
+import Footer from '../components/layouts/Footer'
 
 export default function Products() {
     const [products, setProducts] = useState([])

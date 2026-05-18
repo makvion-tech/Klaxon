@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowUpRight } from 'lucide-react'
-
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+  Leaf
+} from "lucide-react"
+import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"
 const socials = [
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter/X' },
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter/X' },
+  { icon: FaFacebook, href: 'https://facebook.com', label: 'Facebook' },
+  { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
 ]
 
 const products = ['Sesame Seed', 'Shea Butter', 'Cashew Nuts', 'Cocoa Beans', 'Hibiscus', 'Cassava Flour', 'Turmeric']

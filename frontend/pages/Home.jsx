@@ -5,11 +5,12 @@ import {
     ArrowRight, Globe, Shield, Truck, Award, ChevronDown,
     Star, TrendingUp, Users, Package
 } from 'lucide-react'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
+
 import ProductCard from '../components/ui/ProductCard'
 import { ProductSkeleton } from '../components/ui/Skeleton'
-import api from '../utils/api'
+import api from '../src/utils/api'
+import Navbar from '../components/layouts/Navbar'
+import Footer from '../components/layouts/Footer'
 
 const fadeUp = {
     initial: { opacity: 0, y: 32 },
@@ -53,11 +54,16 @@ export default function Home() {
 
     useEffect(() => {
         api.get('/products?featured=true&limit=6')
-            .then(res => setProducts(res.data.data))
-            .catch(console.error)
+            .then(res => {
+                const data = res?.data?.data ?? res?.data ?? []
+                setProducts(Array.isArray(data) ? data : [])
+            })
+            .catch(err => {
+                console.error(err)
+                setProducts([])
+            })
             .finally(() => setLoading(false))
     }, [])
-
     return (
         <div className="min-h-screen">
             <Navbar />
