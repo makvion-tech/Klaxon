@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Leaf, Eye, EyeOff, Shield, Lock } from 'lucide-react'
+import { Eye, EyeOff, Shield, Lock } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import toast from 'react-hot-toast'
+
+const inputClasses =
+    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-forest-900 " +
+    "placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/40 " +
+    "focus:border-gold-500 transition-colors"
+
+const labelClasses =
+    "block font-mono text-xs text-gray-500 uppercase tracking-wider mb-1.5"
 
 export default function AdminLogin() {
     const [form, setForm] = useState({ email: '', password: '' })
@@ -39,11 +47,13 @@ export default function AdminLogin() {
 
                 <div className="relative">
                     <Link to="/" className="flex items-center gap-2.5">
-                        <div className="w-10 h-10 bg-gold-500 rounded-xl flex items-center justify-center">
-                            <Leaf className="w-5 h-5 text-white" />
-                        </div>
+                        <img
+                            src="/logo.jpeg"
+                            alt="Klaxon Ford Resources"
+                            className="w-10 h-10 rounded-xl object-cover"
+                        />
                         <div>
-                            <div className="font-display font-bold text-white text-lg">Klaxon Ford Agric</div>
+                            <div className="font-display font-bold text-white text-lg">Klaxon Ford Resources</div>
                             <div className="font-mono text-[10px] text-gold-400 tracking-widest uppercase">Admin Portal</div>
                         </div>
                     </Link>
@@ -70,7 +80,7 @@ export default function AdminLogin() {
 
                 <div className="relative">
                     <p className="font-mono text-xs text-gray-600">
-                        © {new Date().getFullYear()} Klaxon Ford Agric Ltd.
+                        © {new Date().getFullYear()} Klaxon Ford Resources Ltd.
                     </p>
                 </div>
             </div>
@@ -84,11 +94,13 @@ export default function AdminLogin() {
                 >
                     {/* Mobile logo */}
                     <div className="lg:hidden flex items-center gap-2.5 mb-8">
-                        <div className="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center">
-                            <Leaf className="w-5 h-5 text-white" />
-                        </div>
+                        <img
+                            src="/logo.jpeg"
+                            alt="Klaxon Ford Resources"
+                            className="w-9 h-9 rounded-lg object-cover"
+                        />
                         <div>
-                            <div className="font-display font-bold text-white text-base">Klaxon Ford Agric</div>
+                            <div className="font-display font-bold text-white text-base">Klaxon Ford Resources</div>
                             <div className="font-mono text-[9px] text-gold-400 tracking-widest uppercase">Admin Portal</div>
                         </div>
                     </div>
@@ -106,11 +118,11 @@ export default function AdminLogin() {
 
                         <form onSubmit={handleSubmit} className="space-y-5">
                             <div>
-                                <label className="label">Email Address</label>
+                                <label className={labelClasses}>Email Address</label>
                                 <input
                                     type="email"
-                                    className="input"
-                                    placeholder="admin@klaxonfordagric.com"
+                                    className={inputClasses}
+                                    placeholder="admin@klaxonfordresources.com"
                                     value={form.email}
                                     onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                                     required
@@ -119,11 +131,11 @@ export default function AdminLogin() {
                             </div>
 
                             <div>
-                                <label className="label">Password</label>
+                                <label className={labelClasses}>Password</label>
                                 <div className="relative">
                                     <input
                                         type={showPw ? 'text' : 'password'}
-                                        className="input pr-12"
+                                        className={`${inputClasses} pr-12`}
                                         placeholder="••••••••"
                                         value={form.password}
                                         onChange={e => setForm(p => ({ ...p, password: e.target.value }))}

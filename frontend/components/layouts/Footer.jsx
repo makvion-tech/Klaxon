@@ -3,8 +3,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowUpRight,
-  Leaf
+  ArrowUpRight
 } from "lucide-react"
 import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"
 const socials = [
@@ -25,12 +24,14 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-2.5 mb-6">
-                            <div className="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center">
-                                <Leaf className="w-5 h-5 text-white" />
-                            </div>
+                            <img
+                                src="/logo.jpeg"
+                                alt="Klaxon Ford Resources"
+                                className="w-9 h-9 rounded-lg object-cover"
+                            />
                             <div>
                                 <div className="font-display font-bold text-white text-lg leading-tight">Klaxon Ford</div>
-                                <div className="font-mono text-[10px] text-gold-400 tracking-widest uppercase">Agric Exports</div>
+                                <div className="font-mono text-[10px] text-gold-400 tracking-widest uppercase">Resources</div>
                             </div>
                         </div>
                         <p className="font-body text-gray-400 text-sm leading-relaxed mb-6">
@@ -38,7 +39,7 @@ export default function Footer() {
                         </p>
                         <div className="flex items-center gap-3">
                             {socials.map(({ icon: Icon, href, label }) => (
-                                <a
+                                
                                     key={label}
                                     href={href}
                                     target="_blank"
@@ -123,7 +124,7 @@ export default function Footer() {
                 {/* Bottom */}
                 <div className="flex flex-col sm:flex-row items-center justify-between py-6 gap-4">
                     <p className="font-body text-xs text-gray-500">
-                        © {new Date().getFullYear()} Klaxon Ford Agric Ltd. All rights reserved.
+                        © {new Date().getFullYear()} Klaxon Ford Resources Ltd. All rights reserved.
                     </p>
                     <p className="font-mono text-xs text-gray-600">
                         Made with precision · For global markets
