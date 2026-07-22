@@ -38,8 +38,10 @@ export default function Navbar() {
                             <Leaf className="w-5 h-5 text-gold-400" />
                         </div>
                         <div>
-                            <div className="font-display font-bold text-forest-900 text-lg leading-tight">Klaxon Ford</div>
-                            <div className="font-mono text-[10px] text-gold-600 tracking-widest uppercase">Agric Exports</div>
+                            <div className={`font-display font-bold text-lg leading-tight transition-colors ${scrolled ? 'text-forest-900' : 'text-white'}`}>
+                                Klaxon Ford
+                            </div>
+                            <div className="font-mono text-[10px] text-gold-400 tracking-widest uppercase">Agric Exports</div>
                         </div>
                     </Link>
 
@@ -51,7 +53,10 @@ export default function Navbar() {
                                 to={link.to}
                                 end={link.to === '/'}
                                 className={({ isActive }) =>
-                                    `font-body font-medium text-sm transition-colors relative group ${isActive ? 'text-forest-900' : 'text-gray-600 hover:text-forest-900'
+                                    `font-body font-medium text-sm transition-colors relative group ${
+                                        isActive
+                                            ? scrolled ? 'text-forest-900' : 'text-white'
+                                            : scrolled ? 'text-gray-600 hover:text-forest-900' : 'text-gray-200 hover:text-white'
                                     }`
                                 }
                             >
@@ -65,7 +70,11 @@ export default function Navbar() {
                         ))}
                         <Link
                             to="/contact"
-                            className="bg-forest-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-forest-800 transition-colors"
+                            className={`text-sm font-medium px-5 py-2.5 rounded-lg transition-colors ${
+                                scrolled
+                                    ? 'bg-forest-900 text-white hover:bg-forest-800'
+                                    : 'bg-white text-forest-900 hover:bg-gold-400'
+                            }`}
                         >
                             Export Inquiry
                         </Link>
@@ -74,7 +83,11 @@ export default function Navbar() {
                     {/* Mobile toggle */}
                     <button
                         onClick={() => setOpen(!open)}
-                        className="md:hidden p-2 rounded-lg text-forest-900 hover:bg-forest-900/10 transition-colors"
+                        className={`md:hidden p-2 rounded-lg transition-colors ${
+                            scrolled
+                                ? 'text-forest-900 hover:bg-forest-900/10'
+                                : 'text-white hover:bg-white/10'
+                        }`}
                     >
                         {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </button>

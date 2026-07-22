@@ -31,6 +31,22 @@ const socials = [
   { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
 ]
 
+const inputClasses =
+  "w-full px-4 py-3 rounded-xl border border-gray-200 bg-ivory-50 text-forest-900 " +
+  "placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/40 " +
+  "focus:border-gold-500 transition-colors"
+
+function Field({ label, required, children }) {
+  return (
+    <div>
+      <label className="block font-mono text-xs text-gray-500 uppercase tracking-wider mb-1.5">
+        {label} {required && <span className="text-gold-600">*</span>}
+      </label>
+      {children}
+    </div>
+  )
+}
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', company: '', country: '', quantity: '', message: '',
@@ -159,32 +175,89 @@ export default function Contact() {
                   Inquiry Received!
                 </h2>
                 <p className="text-gray-500">
-                  We’ll contact you within 24 hours.
+                  We'll contact you within 24 hours.
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 bg-white p-8 rounded-2xl">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm"
+              >
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <Field label="Name" required>
+                    <input
+                      className={inputClasses}
+                      placeholder="Your full name"
+                      value={form.name}
+                      onChange={update('name')}
+                      required
+                    />
+                  </Field>
 
-                <input className="input" placeholder="Name" value={form.name} onChange={update('name')} required />
-                <input className="input" placeholder="Email" value={form.email} onChange={update('email')} required />
-                <input className="input" placeholder="Phone" value={form.phone} onChange={update('phone')} />
-                <input className="input" placeholder="Company" value={form.company} onChange={update('company')} />
-                <input className="input" placeholder="Country" value={form.country} onChange={update('country')} />
-                <input className="input" placeholder="Quantity" value={form.quantity} onChange={update('quantity')} />
+                  <Field label="Email" required>
+                    <input
+                      type="email"
+                      className={inputClasses}
+                      placeholder="you@company.com"
+                      value={form.email}
+                      onChange={update('email')}
+                      required
+                    />
+                  </Field>
 
-                <textarea
-                  className="input"
-                  rows={5}
-                  placeholder="Message"
-                  value={form.message}
-                  onChange={update('message')}
-                  required
-                />
+                  <Field label="Phone">
+                    <input
+                      type="tel"
+                      className={inputClasses}
+                      placeholder="+234 800 000 0000"
+                      value={form.phone}
+                      onChange={update('phone')}
+                    />
+                  </Field>
+
+                  <Field label="Company">
+                    <input
+                      className={inputClasses}
+                      placeholder="Company name"
+                      value={form.company}
+                      onChange={update('company')}
+                    />
+                  </Field>
+
+                  <Field label="Country">
+                    <input
+                      className={inputClasses}
+                      placeholder="Destination country"
+                      value={form.country}
+                      onChange={update('country')}
+                    />
+                  </Field>
+
+                  <Field label="Quantity">
+                    <input
+                      className={inputClasses}
+                      placeholder="e.g. 500 MT"
+                      value={form.quantity}
+                      onChange={update('quantity')}
+                    />
+                  </Field>
+                </div>
+
+                <Field label="Message" required>
+                  <textarea
+                    className={`${inputClasses} resize-none`}
+                    rows={5}
+                    placeholder="Tell us what you're looking to source..."
+                    value={form.message}
+                    onChange={update('message')}
+                    required
+                  />
+                </Field>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-forest-900 text-white py-4 rounded-xl flex items-center justify-center gap-2"
+                  className="w-full bg-forest-900 text-white py-4 rounded-xl flex items-center justify-center gap-2 font-medium hover:bg-forest-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? 'Sending...' : (
                     <>
@@ -192,7 +265,6 @@ export default function Contact() {
                     </>
                   )}
                 </button>
-
               </form>
             )}
 
