@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAllCategories, createCategory, updateCategory, deleteCategory } = require('../controllers/category.controller');
-const { protect } = require('../middleware/auth.middleware');
+const { getAllCategories, createCategory, updateCategory, deleteCategory } = require('../controllers/categoryController');
+const { protect } = require('../middleware/Authmiddleware');
 
 router.get('/', getAllCategories);
 router.post('/', protect, createCategory);
