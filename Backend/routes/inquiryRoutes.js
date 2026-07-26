@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createInquiry, getAllInquiries, updateInquiryStatus } = require('../controllers/inquiryController');
+const { createInquiry, getAllInquiries, updateInquiryStatus } = require('../controller/inquiryController');
 const { protect } = require('../middleware/Authmiddleware');
 
 router.post('/', createInquiry);
