@@ -5,12 +5,12 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 
-const authRoutes = require('./routes/auth.routes');
-const productRoutes = require('./routes/product.routes');
-const categoryRoutes = require('./routes/category.routes');
-const feedbackRoutes = require('./routes/feedback.routes');
-const inquiryRoutes = require('./routes/inquiry.routes');
-const adminRoutes = require('./routes/admin.routes');
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
+const inquiryRoutes = require('./routes/inquiryRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 const { errorHandler, notFound } = require('./middleware/error.middleware');
 
 const app = express();
