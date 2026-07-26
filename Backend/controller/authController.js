@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
-const prisma = require('../utils/prisma');
-const { generateToken } = require('../utils/jwt');
+const prisma = require('../prisma');
+const { generateToken } = require('../jwt');
 
 const login = async (req, res, next) => {
     try {

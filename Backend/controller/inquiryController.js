@@ -1,4 +1,4 @@
-const prisma = require('../utils/prisma');
+const prisma = require('../prisma');
 
 const createInquiry = async (req, res, next) => {
     try {

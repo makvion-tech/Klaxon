@@ -1,5 +1,5 @@
-const prisma = require('../utils/prisma');
-const { generateUniqueSlug } = require('../utils/slug');
+const prisma = require('../prisma');
+const { generateUniqueSlug } = require('../slug');
 
 const getAllProducts = async (req, res, next) => {
     try {
