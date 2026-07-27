@@ -1,5 +1,5 @@
-const { verifyToken } = require('../utils/jwt');
-const prisma = require('../utils/prisma');
+const { verifyToken } = require('../jwt');
+const prisma = require('../prisma');
 
 const protect = async (req, res, next) => {
     try {
