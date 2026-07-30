@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import toast from 'react-hot-toast'
-import api from '../utils/api'
+import api from '../src/utils/api'
 
 const inputClasses =
     "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-forest-900 " +
