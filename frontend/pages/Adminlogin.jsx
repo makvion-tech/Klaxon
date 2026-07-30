@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Shield, Lock } from 'lucide-react'
+import { Leaf, Eye, EyeOff, Shield, Lock } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import toast from 'react-hot-toast'
 
@@ -47,13 +47,11 @@ export default function AdminLogin() {
 
                 <div className="relative">
                     <Link to="/" className="flex items-center gap-2.5">
-                        <img
-                            src="/logo.jpeg"
-                            alt="Klaxon Ford Resources"
-                            className="w-10 h-10 rounded-xl object-cover"
-                        />
+                        <div className="w-10 h-10 bg-gold-500 rounded-xl flex items-center justify-center">
+                            <Leaf className="w-5 h-5 text-white" />
+                        </div>
                         <div>
-                            <div className="font-display font-bold text-white text-lg">Klaxon Ford Resources</div>
+                            <div className="font-display font-bold text-white text-lg">Klaxon Ford Agric</div>
                             <div className="font-mono text-[10px] text-gold-400 tracking-widest uppercase">Admin Portal</div>
                         </div>
                     </Link>
@@ -80,7 +78,7 @@ export default function AdminLogin() {
 
                 <div className="relative">
                     <p className="font-mono text-xs text-gray-600">
-                        © {new Date().getFullYear()} Klaxon Ford Resources Ltd.
+                        © {new Date().getFullYear()} Klaxon Ford Agric Ltd.
                     </p>
                 </div>
             </div>
@@ -94,13 +92,11 @@ export default function AdminLogin() {
                 >
                     {/* Mobile logo */}
                     <div className="lg:hidden flex items-center gap-2.5 mb-8">
-                        <img
-                            src="/logo.jpeg"
-                            alt="Klaxon Ford Resources"
-                            className="w-9 h-9 rounded-lg object-cover"
-                        />
+                        <div className="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center">
+                            <Leaf className="w-5 h-5 text-white" />
+                        </div>
                         <div>
-                            <div className="font-display font-bold text-white text-base">Klaxon Ford Resources</div>
+                            <div className="font-display font-bold text-white text-base">Klaxon Ford Agric</div>
                             <div className="font-mono text-[9px] text-gold-400 tracking-widest uppercase">Admin Portal</div>
                         </div>
                     </div>
@@ -122,7 +118,7 @@ export default function AdminLogin() {
                                 <input
                                     type="email"
                                     className={inputClasses}
-                                    placeholder="admin@klaxonfordresources.com"
+                                    placeholder="admin@klaxonfordagric.com"
                                     value={form.email}
                                     onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                                     required
